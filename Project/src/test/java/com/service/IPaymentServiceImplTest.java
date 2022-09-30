@@ -45,14 +45,14 @@ class IPaymentServiceImplTest {
 	void testAddPayment() {
 		
 		ITransaction t1 = new ITransaction();
-		t1.setAmount(25000.4);
-		t1.settId(876);
+		t1.setAmount(20000);
+		t1.settId(124);
 
 		
 		IPayment p1 = new IPayment();
-		p1.setpId(2);
-		p1.setbId(56);
-		p1.settId(123);
+		p1.setpId(1);
+		p1.setbId(13);
+		p1.settId(124);
 		p1.setT(t1);
 		t1.setP(p1);
 		

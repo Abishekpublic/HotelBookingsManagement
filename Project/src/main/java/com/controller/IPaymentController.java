@@ -1,5 +1,7 @@
 package com.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,7 +20,7 @@ public class IPaymentController {
 	IPaymentService paymentservice;
 	
 	@PostMapping("/addpayment")
-	  public IPayment addpayments(@RequestBody IPayment payment) 
+	  public IPayment addpayments(@Valid @RequestBody IPayment payment) 
 	  { 
 		  IPayment p = paymentservice.addPayment(payment);
 		  return p;

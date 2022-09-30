@@ -1,15 +1,16 @@
 package com.entity;
 
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 
 
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.MapsId;
+
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -19,14 +20,15 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 public class ITransaction {
 
 	@Id
+	@NotBlank(message="Transaction id is mandatory")
 	private int tId;
-	
-	private double amount;
+    @NotBlank(message="amount is mandatory")
+    private double amount;
 
-	
-	@OneToOne(cascade=CascadeType.ALL)
+	@OneToOne
+	@JoinColumn(name="tId",unique=true)
 	@JsonBackReference
-    IPayment p;
+	private IPayment p;
 	
 	public int gettId() {
 		return tId;

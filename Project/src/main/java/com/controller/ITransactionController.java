@@ -1,5 +1,7 @@
 package com.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +19,7 @@ public class ITransactionController {
 	ITransactionService transactionservice;
 	
 	@PostMapping("/addtransaction")
-	public ITransaction addTransaction(@RequestBody ITransaction transaction) {
+	public ITransaction addTransaction(@Valid @RequestBody ITransaction transaction) {
 	
 		ITransaction t = transactionservice.addTransaction(transaction);
 		return t;
