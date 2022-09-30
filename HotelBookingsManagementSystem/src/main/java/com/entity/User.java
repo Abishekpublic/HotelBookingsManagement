@@ -3,6 +3,8 @@ package com.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 
 @Entity
@@ -10,11 +12,16 @@ import javax.persistence.Table;
 public class User {
 	@Id
 	private int userId;
+	@NotBlank(message = "Username is mandatory")
 	private String userName;
+	@Email
 	private String email;
 	private String password;
+	@NotBlank(message = "Role is mandatory")
 	private String role;
+	@NotBlank(message = "Mobile is mandatory")
 	private String mobile;
+	@NotBlank(message = "Address is mandatory")
 	private String address;
 	
 	public int getUserId() {
