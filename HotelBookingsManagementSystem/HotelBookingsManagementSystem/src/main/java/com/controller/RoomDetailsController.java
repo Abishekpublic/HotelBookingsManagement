@@ -59,5 +59,12 @@ public class RoomDetailsController {
 		return roomdetailsservice.showAllRoomDetails();
 		
 	}
-
+	
+//	@GetMapping("/getroomdetailsbyroomtype/{room_type}")
+//	public List<RoomDetails> getRoomDetailsByRoomType(@PathVariable String room_type)
+//	{
+//		return roomdetailsservice.getRoomDetailsByRoomType(room_type);
+//		
+//	}
+	
 }

@@ -1,8 +1,14 @@
 package com.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class RoomDetails {
@@ -10,12 +16,26 @@ public class RoomDetails {
 	@Id
 	@GeneratedValue
 	private int room_id;
+	
 	private int hotel_id;
 	private String room_no;
 	private String room_type;
 	private double rate_per_day;
 	private boolean isavailable;
 	//private Blob photo;
+	
+	@ManyToOne
+	@JoinColumn(name="jid")//, unique = true)
+	//@JsonBackReference
+	//@JsonIgnore
+	Hotel hotel;
+	
+	public Hotel getHotel() {
+		return hotel;
+	}
+	public void setHotel(Hotel hotel) {
+		this.hotel = hotel;
+	}
 	
 	public int getRoom_id() {
 		return room_id;

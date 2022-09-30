@@ -2,6 +2,7 @@ package com.service;
 
 import java.lang.StackWalker.Option;
 
+
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -9,7 +10,6 @@ import java.util.function.Supplier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.advices.ResourceNotFoundException;
 import com.entity.RoomDetails;
 import com.repository.RoomDetailsRepo;
 
@@ -62,5 +62,11 @@ public class RoomDetailsService {
 		
 		return roomdetails;
 	}
+	
+//	public List<RoomDetails> getRoomDetailsByRoomType(String room_type)
+//	{
+//		return repo.getRoomDetailsByRoomType(room_type);
+//		
+//	}
 	
 }
