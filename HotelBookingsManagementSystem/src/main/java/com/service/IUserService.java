@@ -9,15 +9,17 @@ import com.entity.User;
 import com.repository.UserRepository;
 
 @Service
-public class IUserService {
+public class IUserService implements IUserServiceImpl {
 	
 	@Autowired
 	UserRepository userRepository;
 	
+	@Override
 	public User addUser(User user) {
 		return userRepository.save(user);
 	}
 	
+	@Override
 	public User updateUser(User user) {
 		int id=user.getUserId();
 		User u1=userRepository.findById(id).orElseThrow();
@@ -32,15 +34,18 @@ public class IUserService {
 		
 	}
 	
+	@Override
 	public String removeUser(int userId) {
 		userRepository.deleteById(userId);
 		return "User removed successfully";
 	}
 	
+	@Override
 	public List<User> showAllUsers(){
 		return userRepository.findAll();
 	}
 	
+	@Override
 	public User showUser(int userId){
 		return userRepository.findById(userId).orElseThrow();
 	}

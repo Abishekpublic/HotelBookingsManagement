@@ -2,6 +2,8 @@ package com.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,13 +27,13 @@ public class UserController {
 	IUserService userService;
 	
 	@PostMapping("adduser")
-	public ResponseEntity<User> addUser(@RequestBody User user){
+	public ResponseEntity<User> addUser(@Valid  @RequestBody User user){
 		userService.addUser(user);
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
 	
 	@PutMapping("updateuser")
-	public ResponseEntity<User> updateUser(@RequestBody   User user) {
+	public ResponseEntity<User> updateUser(@Valid   @RequestBody   User user) {
 		return new ResponseEntity<>(userService.updateUser(user),HttpStatus.OK);
 	}
 	
